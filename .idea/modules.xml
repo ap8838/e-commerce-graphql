@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/e-commerce-graphql.iml" filepath="$PROJECT_DIR$/.idea/e-commerce-graphql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ecommerce.demo.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ecommerce.demo.main.iml" />
     </modules>
   </component>
 </project>
