@@ -14,18 +14,17 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Product")
-
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "image")
-    private String image;
+    @Column(name = "image", columnDefinition = "BLOB")
+    private byte[] image;
 
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;

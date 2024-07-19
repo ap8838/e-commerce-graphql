@@ -1,4 +1,5 @@
 package com.atomtechnologies.ecommerce.demo.domain;
+
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -12,15 +13,14 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @Entity
 @Table(name = "Review")
-
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "rating", nullable = false)
-    private Integer rating;
+    private Long rating;
 
     @Column(name = "comment", columnDefinition = "TEXT")
     private String comment;

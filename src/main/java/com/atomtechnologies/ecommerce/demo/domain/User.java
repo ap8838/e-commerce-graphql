@@ -1,8 +1,8 @@
 package com.atomtechnologies.ecommerce.demo.domain;
+
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.Accessors;
-
 import java.util.List;
 
 
@@ -15,12 +15,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Users")
-
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "name", nullable = false)
     private String name;
