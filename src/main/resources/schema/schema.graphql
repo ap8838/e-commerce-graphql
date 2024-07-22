@@ -1,4 +1,3 @@
-scalar Upload
 type Query {
     getPaginatedCategories(page: Int!, size: Int!): [Category]
     getPaginatedProducts(page: Int!, size: Int!): [Product]
@@ -9,11 +8,10 @@ type Query {
 
 type Mutation {
     addCategory(name: String!, description: String!): Category
-    addProduct(name: String!, image: Upload, description: String!, categoryId: Int!): Product
+    addProduct(name: String!, description: String!, categoryId: Int!): Product
     addReview(productId: Int!, userId: Int!, rating: Int!, comment: String!): Review
     registerUser(name: String!, email: String!, profile: String!): User
 }
-
 
 type Category {
     id: Int
@@ -25,7 +23,6 @@ type Category {
 type Product {
     id: Int
     name: String
-    image: String
     description: String
     category: Category
     reviews: [Review]
