@@ -5,7 +5,6 @@ import lombok.*;
 import lombok.experimental.Accessors;
 import java.util.List;
 
-
 @Accessors(prefix = "")
 @Entity
 @Getter
@@ -31,5 +30,4 @@ public class User {
     private String profile;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Review> reviews;
-}
+    private List<Review> reviews;}

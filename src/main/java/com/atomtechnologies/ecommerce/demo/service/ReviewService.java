@@ -1,6 +1,5 @@
 package com.atomtechnologies.ecommerce.demo.service;
 
-
 import com.atomtechnologies.ecommerce.demo.domain.Product;
 import com.atomtechnologies.ecommerce.demo.domain.Review;
 import com.atomtechnologies.ecommerce.demo.domain.User;
@@ -9,7 +8,9 @@ import com.atomtechnologies.ecommerce.demo.persistence.ReviewRepository;
 import com.atomtechnologies.ecommerce.demo.persistence.UserRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+
 @Service
 public class ReviewService {
     private final ReviewRepository reviewRepository;
@@ -23,8 +24,10 @@ public class ReviewService {
     }
 
     public Review addReview(Long productId, Long userId, Long rating, String comment) {
-        Product product = productRepository.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
-        User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
 
         Review review = Review.builder()
                 .product(product)

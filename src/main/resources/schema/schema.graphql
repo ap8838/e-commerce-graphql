@@ -1,0 +1,48 @@
+scalar Upload
+type Query {
+    getPaginatedCategories(page: Int!, size: Int!): [Category]
+    getPaginatedProducts(page: Int!, size: Int!): [Product]
+    getProductsByCategory(categoryId: Int!, page: Int!, size: Int!): [Product]
+    getReviews(productId: Int!, page: Int!, size: Int!): [Review]
+    getUsers: [User]
+}
+
+type Mutation {
+    addCategory(name: String!, description: String!): Category
+    addProduct(name: String!, image: Upload, description: String!, categoryId: Int!): Product
+    addReview(productId: Int!, userId: Int!, rating: Int!, comment: String!): Review
+    registerUser(name: String!, email: String!, profile: String!): User
+}
+
+
+type Category {
+    id: Int
+    name: String
+    description: String
+    products: [Product]
+}
+
+type Product {
+    id: Int
+    name: String
+    image: String
+    description: String
+    category: Category
+    reviews: [Review]
+}
+
+type Review {
+    id: Int
+    rating: Int
+    comment: String
+    product: Product
+    user: User
+}
+
+type User {
+    id: Int
+    name: String
+    email: String
+    profile: String
+    reviews: [Review]
+}
