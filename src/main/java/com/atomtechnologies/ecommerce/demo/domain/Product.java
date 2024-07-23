@@ -1,3 +1,4 @@
+
 package com.atomtechnologies.ecommerce.demo.domain;
 
 import jakarta.persistence.*;
@@ -23,6 +24,9 @@ public class Product {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "image", columnDefinition = "BLOB")
+    private byte[] image;
+
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
@@ -31,5 +35,4 @@ public class Product {
     private Category category;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    private List<Review> reviews;
-}
+    private List<Review> reviews;}

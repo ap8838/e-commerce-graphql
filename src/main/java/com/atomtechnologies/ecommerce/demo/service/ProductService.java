@@ -19,12 +19,13 @@ public class ProductService {
         this.categoryRepository = categoryRepository;
     }
 
-    public Product addProduct(String name, String description, Long categoryId) {
+    public Product addProduct(String name, byte[] image, String description, Long categoryId) {
         Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new RuntimeException("Category not found"));
 
         Product product = Product.builder()
                 .name(name)
+                .image(image)
                 .description(description)
                 .category(category)
                 .build();
@@ -41,3 +42,4 @@ public class ProductService {
         return productRepository.findAllByCategory(category, PageRequest.of(page, size)).getContent();
     }
 }
+
