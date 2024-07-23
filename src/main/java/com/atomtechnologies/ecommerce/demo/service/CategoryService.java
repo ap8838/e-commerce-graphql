@@ -4,7 +4,9 @@ import com.atomtechnologies.ecommerce.demo.domain.Category;
 import com.atomtechnologies.ecommerce.demo.persistence.CategoryRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoryService {
@@ -15,6 +17,11 @@ public class CategoryService {
     }
 
     public Category addCategory(String name, String description) {
+        Optional<Category> existingCategory = categoryRepository.findByName(name);
+        if (existingCategory.isPresent()) {
+            throw new IllegalArgumentException("Category with the same name already exists");
+        }
+
         Category category = Category.builder()
                 .name(name)
                 .description(description)
@@ -22,7 +29,12 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
-    public List<Category> getPaginatedCategories(int page, int size) {
+    public List<Category> getCategories(int page, int size) {
         return categoryRepository.findAll(PageRequest.of(page, size)).getContent();
+    }
+
+    public Category getCategoryById(Long categoryId) {
+        return categoryRepository.findById(categoryId)
+                .orElseThrow(() -> new IllegalArgumentException("Category not found"));
     }
 }

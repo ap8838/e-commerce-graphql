@@ -1,6 +1,7 @@
 package com.atomtechnologies.ecommerce.demo.mutation;
 
 import com.atomtechnologies.ecommerce.demo.domain.Category;
+import com.atomtechnologies.ecommerce.demo.filter.AddCategoryInput;
 import com.atomtechnologies.ecommerce.demo.service.CategoryService;
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsMutation;
@@ -15,7 +16,7 @@ public class CategoryMutation {
     }
 
     @DgsMutation
-    public Category addCategory(@InputArgument String name, @InputArgument String description) {
-        return categoryService.addCategory(name, description);
+    public Category addCategory(@InputArgument AddCategoryInput input) {
+        return categoryService.addCategory(input.getName(), input.getDescription());
     }
 }

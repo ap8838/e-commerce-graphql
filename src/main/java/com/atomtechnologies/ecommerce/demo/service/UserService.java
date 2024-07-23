@@ -2,7 +2,6 @@ package com.atomtechnologies.ecommerce.demo.service;
 
 import com.atomtechnologies.ecommerce.demo.domain.User;
 import com.atomtechnologies.ecommerce.demo.persistence.UserRepository;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,6 +29,6 @@ public class UserService {
 
     public User getUserById(Long userId) {
         return userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
     }
 }

@@ -2,9 +2,7 @@ package com.atomtechnologies.ecommerce.demo.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.experimental.Accessors;
 
-@Accessors(prefix = "")
 @Getter
 @Setter
 @ToString(onlyExplicitlyIncluded = true)

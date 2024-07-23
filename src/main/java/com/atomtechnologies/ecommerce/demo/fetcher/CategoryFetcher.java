@@ -1,6 +1,7 @@
 package com.atomtechnologies.ecommerce.demo.fetcher;
 
 import com.atomtechnologies.ecommerce.demo.domain.Category;
+import com.atomtechnologies.ecommerce.demo.filter.GetCategoriesInput;
 import com.atomtechnologies.ecommerce.demo.service.CategoryService;
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsQuery;
@@ -17,7 +18,11 @@ public class CategoryFetcher {
     }
 
     @DgsQuery
-    public List<Category> getPaginatedCategories(@InputArgument int page, @InputArgument int size) {
-        return categoryService.getPaginatedCategories(page, size);
+    public List<Category> getCategories(@InputArgument GetCategoriesInput input) {
+        return categoryService.getCategories(input.getPage(), input.getSize());
+    }
+    @DgsQuery
+    public Category getCategoryById(@InputArgument Long categoryId) {
+        return categoryService.getCategoryById(categoryId);
     }
 }

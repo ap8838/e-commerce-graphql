@@ -1,6 +1,7 @@
 package com.atomtechnologies.ecommerce.demo.fetcher;
 
 import com.atomtechnologies.ecommerce.demo.domain.Review;
+import com.atomtechnologies.ecommerce.demo.filter.GetReviewsInput;
 import com.atomtechnologies.ecommerce.demo.service.ReviewService;
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsQuery;
@@ -17,7 +18,7 @@ public class ReviewFetcher {
     }
 
     @DgsQuery
-    public List<Review> getReviews(@InputArgument Long productId, @InputArgument int page, @InputArgument int size) {
-        return reviewService.getReviews(productId, page, size);
+    public List<Review> getReviews(@InputArgument GetReviewsInput input) {
+        return reviewService.getReviews(input.getProductId(), input.getPage(), input.getSize());
     }
 }

@@ -20,4 +20,9 @@ public class UserFetcher {
     public List<User> getUsers() {
         return userService.getAllUsers();
     }
+
+    @DgsQuery
+    public User getUserById(@InputArgument Long userId) {
+        return userService.getUserById(userId);
+    }
 }

@@ -1,12 +1,9 @@
-
 package com.atomtechnologies.ecommerce.demo.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.experimental.Accessors;
 import java.util.List;
 
-@Accessors(prefix = "")
 @Entity
 @Getter
 @Setter
@@ -23,9 +20,6 @@ public class Product {
 
     @Column(name = "name", nullable = false)
     private String name;
-
-    @Column(name = "image", columnDefinition = "BLOB")
-    private byte[] image;
 
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;

@@ -1,19 +1,65 @@
-scalar Upload
+input GetCategoriesInput {
+    page: Int!
+    size: Int!
+}
+
+input GetProductsInput {
+    page: Int!
+    size: Int!
+}
+
+input GetProductsByCategoryInput {
+    categoryId: Int!
+    page: Int!
+    size: Int!
+}
+
+input GetReviewsInput {
+    productId: Int!
+    page: Int!
+    size: Int!
+}
+
+input AddProductInput {
+    name: String!
+    description: String!
+    categoryId: Int!
+}
+
+input AddCategoryInput {
+    name: String!
+    description: String!
+}
+
+input AddReviewInput {
+    productId: Int!
+    userId: Int!
+    rating: Int!
+    comment: String!
+}
+
+input RegisterUserInput {
+    name: String!
+    email: String!
+    profile: String!
+}
+
 type Query {
-    getPaginatedCategories(page: Int!, size: Int!): [Category]
-    getPaginatedProducts(page: Int!, size: Int!): [Product]
-    getProductsByCategory(categoryId: Int!, page: Int!, size: Int!): [Product]
-    getReviews(productId: Int!, page: Int!, size: Int!): [Review]
+    getCategoryById(categoryId: Int!): Category
+    getCategories(input: GetCategoriesInput!): [Category]
+    getProducts(input: GetProductsInput!): [Product]
+    getProductsByCategory(input: GetProductsByCategoryInput!): [Product]
+    getReviews(input: GetReviewsInput!): [Review]
     getUsers: [User]
+    getUserById(userId: Int!): User
 }
 
 type Mutation {
-    addCategory(name: String!, description: String!): Category
-    addProduct(name: String!, image: Upload, description: String!, categoryId: Int!): Product
-    addReview(productId: Int!, userId: Int!, rating: Int!, comment: String!): Review
-    registerUser(name: String!, email: String!, profile: String!): User
+    addCategory(input: AddCategoryInput!): Category
+    addProduct(input: AddProductInput!): Product
+    addReview(input: AddReviewInput!): Review
+    registerUser(input: RegisterUserInput!): User
 }
-
 
 type Category {
     id: Int
@@ -25,7 +71,6 @@ type Category {
 type Product {
     id: Int
     name: String
-    image: String
     description: String
     category: Category
     reviews: [Review]

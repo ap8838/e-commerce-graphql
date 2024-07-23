@@ -1,6 +1,7 @@
 package com.atomtechnologies.ecommerce.demo.mutation;
 
 import com.atomtechnologies.ecommerce.demo.domain.Review;
+import com.atomtechnologies.ecommerce.demo.filter.AddReviewInput;
 import com.atomtechnologies.ecommerce.demo.service.ReviewService;
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsMutation;
@@ -15,8 +16,7 @@ public class ReviewMutation {
     }
 
     @DgsMutation
-    public Review addReview(@InputArgument Long productId, @InputArgument Long userId,
-                            @InputArgument Long rating, @InputArgument String comment) {
-        return reviewService.addReview(productId, userId, rating, comment);
+    public Review addReview(@InputArgument AddReviewInput input) {
+        return reviewService.addReview(input.getProductId(), input.getUserId(), input.getRating(), input.getComment());
     }
 }

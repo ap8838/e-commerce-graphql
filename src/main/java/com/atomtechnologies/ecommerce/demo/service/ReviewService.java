@@ -25,9 +25,9 @@ public class ReviewService {
 
     public Review addReview(Long productId, Long userId, Long rating, String comment) {
         Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new RuntimeException("Product not found"));
+                .orElseThrow(() -> new IllegalArgumentException("Product not found"));
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
 
         Review review = Review.builder()
                 .product(product)
