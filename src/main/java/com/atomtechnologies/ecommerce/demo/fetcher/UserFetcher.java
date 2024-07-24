@@ -22,7 +22,7 @@ public class UserFetcher {
     }
 
     @DgsQuery
-    public User getUserById(@InputArgument Long userId) {
+    public User getUserById(@InputArgument int userId) {
         return userService.getUserById(userId);
     }
 }

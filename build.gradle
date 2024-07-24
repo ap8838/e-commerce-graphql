@@ -50,7 +50,7 @@ dependencyManagement {
 
 generateJava {
     schemaPaths = ["${projectDir}/src/main/resources/schema"]
-    packageName = 'com.atomtechnologies.ecommerce.demo.codegen'
+    packageName = 'com.atomtechnologies.ecommerce.demo'
     generateClient = true
 }
 

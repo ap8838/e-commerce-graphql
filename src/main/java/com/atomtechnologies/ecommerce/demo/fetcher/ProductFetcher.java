@@ -1,8 +1,8 @@
 package com.atomtechnologies.ecommerce.demo.fetcher;
 
+import com.atomtechnologies.ecommerce.demo.codegen.types.GetProductsByCategoryInput;
+import com.atomtechnologies.ecommerce.demo.codegen.types.GetProductsInput;
 import com.atomtechnologies.ecommerce.demo.domain.Product;
-import com.atomtechnologies.ecommerce.demo.filter.GetProductsByCategoryInput;
-import com.atomtechnologies.ecommerce.demo.filter.GetProductsInput;
 import com.atomtechnologies.ecommerce.demo.service.ProductService;
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsQuery;

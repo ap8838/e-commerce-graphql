@@ -15,10 +15,10 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private int id;
 
     @Column(name = "rating", nullable = false)
-    private Long rating;
+    private int rating;
 
     @Column(name = "comment", columnDefinition = "TEXT")
     private String comment;
@@ -29,4 +29,5 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;}
+    private User user;
+}

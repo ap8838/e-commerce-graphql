@@ -15,6 +15,12 @@ public class UserService {
     }
 
     public User addUser(String name, String email, String profile) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("User name cannot be null or empty");
+        }
+        if (email == null || email.trim().isEmpty()) {
+            throw new IllegalArgumentException("Email cannot be null or empty");
+        }
         User user = User.builder()
                 .name(name)
                 .email(email)
@@ -27,7 +33,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User getUserById(Long userId) {
+    public User getUserById(int userId) {
         return userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("User not found"));
     }

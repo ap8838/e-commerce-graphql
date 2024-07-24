@@ -17,6 +17,9 @@ public class CategoryService {
     }
 
     public Category addCategory(String name, String description) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Category name cannot be null or empty");
+        }
         Optional<Category> existingCategory = categoryRepository.findByName(name);
         if (existingCategory.isPresent()) {
             throw new IllegalArgumentException("Category with the same name already exists");
@@ -33,7 +36,7 @@ public class CategoryService {
         return categoryRepository.findAll(PageRequest.of(page, size)).getContent();
     }
 
-    public Category getCategoryById(Long categoryId) {
+    public Category getCategoryById(int categoryId) {
         return categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new IllegalArgumentException("Category not found"));
     }

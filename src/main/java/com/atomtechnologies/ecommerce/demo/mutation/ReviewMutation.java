@@ -1,8 +1,8 @@
 package com.atomtechnologies.ecommerce.demo.mutation;
 
 import com.atomtechnologies.ecommerce.demo.domain.Review;
-import com.atomtechnologies.ecommerce.demo.filter.AddReviewInput;
 import com.atomtechnologies.ecommerce.demo.service.ReviewService;
+import com.atomtechnologies.ecommerce.demo.types.AddReviewInput;
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsMutation;
 import com.netflix.graphql.dgs.InputArgument;

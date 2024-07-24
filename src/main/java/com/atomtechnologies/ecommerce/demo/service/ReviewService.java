@@ -23,7 +23,10 @@ public class ReviewService {
         this.userRepository = userRepository;
     }
 
-    public Review addReview(Long productId, Long userId, Long rating, String comment) {
+    public Review addReview(int productId, int userId, int rating, String comment) {
+        if (rating < 1 || rating > 5) {
+            throw new IllegalArgumentException("Rating must be between 1 and 5");
+        }
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new IllegalArgumentException("Product not found"));
         User user = userRepository.findById(userId)
@@ -38,7 +41,7 @@ public class ReviewService {
         return reviewRepository.save(review);
     }
 
-    public List<Review> getReviews(Long productId, int page, int size) {
+    public List<Review> getReviews(int productId, int page, int size) {
         return reviewRepository.findByProductId(productId, PageRequest.of(page, size)).getContent();
     }
 }

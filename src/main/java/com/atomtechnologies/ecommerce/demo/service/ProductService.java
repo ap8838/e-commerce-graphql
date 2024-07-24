@@ -19,7 +19,10 @@ public class ProductService {
         this.categoryRepository = categoryRepository;
     }
 
-    public Product addProduct(String name, String description, Long categoryId) {
+    public Product addProduct(String name, String description, int categoryId) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Product name cannot be null or empty");
+        }
         Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new IllegalArgumentException("Category not found"));
 
@@ -35,7 +38,7 @@ public class ProductService {
         return productRepository.findAll(PageRequest.of(page, size)).getContent();
     }
 
-    public List<Product> getProductsByCategory(Long categoryId, int page, int size) {
+    public List<Product> getProductsByCategory(int categoryId, int page, int size) {
         Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new IllegalArgumentException("Category not found"));
         return productRepository.findAllByCategory(category, PageRequest.of(page, size)).getContent();

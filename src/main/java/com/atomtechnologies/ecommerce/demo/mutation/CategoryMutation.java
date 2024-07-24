@@ -1,7 +1,7 @@
 package com.atomtechnologies.ecommerce.demo.mutation;
 
+import com.atomtechnologies.ecommerce.demo.codegen.types.AddCategoryInput;
 import com.atomtechnologies.ecommerce.demo.domain.Category;
-import com.atomtechnologies.ecommerce.demo.filter.AddCategoryInput;
 import com.atomtechnologies.ecommerce.demo.service.CategoryService;
 import com.netflix.graphql.dgs.DgsComponent;
 import com.netflix.graphql.dgs.DgsMutation;
