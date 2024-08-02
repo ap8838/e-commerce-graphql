@@ -1,6 +1,6 @@
 package com.atomtechnologies.ecommerce.demo.fetcher;
 
-import com.atomtechnologies.ecommerce.demo.codegen.types.GetReviewsInput;
+import com.atomtechnologies.ecommerce.demo.types.GetReviewsInput;
 import com.atomtechnologies.ecommerce.demo.domain.Review;
 import com.atomtechnologies.ecommerce.demo.service.ReviewService;
 import com.netflix.graphql.dgs.DgsComponent;
